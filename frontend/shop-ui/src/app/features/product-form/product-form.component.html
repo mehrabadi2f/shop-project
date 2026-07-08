@@ -1,0 +1,105 @@
+<div class="product-form-container" style="direction: rtl; max-width: 500px; margin: 30px auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+  <h2 style="text-align: center; margin-bottom: 20px;">افزودن محصول جدید</h2>
+
+  <form [formGroup]="productForm" (ngSubmit)="submit()">
+
+    <!-- نام محصول -->
+    <div style="margin-bottom: 15px;">
+      <label for="name" style="display: block; margin-bottom: 5px;">نام محصول</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        style="width: 100%; padding: 8px; box-sizing: border-box;"
+      />
+
+      <small style="color: red;" *ngIf="productForm.get('name')?.touched && productForm.get('name')?.hasError('required')">
+        نام محصول الزامی است.
+      </small>
+
+      <small style="color: red;" *ngIf="productForm.get('name')?.touched && productForm.get('name')?.hasError('minlength')">
+        نام محصول باید حداقل ۳ کاراکتر باشد.
+      </small>
+    </div>
+
+    <!-- توضیحات -->
+    <div style="margin-bottom: 15px;">
+      <label for="description" style="display: block; margin-bottom: 5px;">توضیحات</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        rows="4"
+        style="width: 100%; padding: 8px; box-sizing: border-box;"
+      ></textarea>
+    </div>
+
+    <!-- قیمت -->
+    <div style="margin-bottom: 15px;">
+      <label for="price" style="display: block; margin-bottom: 5px;">قیمت</label>
+      <input
+        id="price"
+        type="number"
+        formControlName="price"
+        style="width: 100%; padding: 8px; box-sizing: border-box;"
+      />
+
+      <small style="color: red;" *ngIf="productForm.get('price')?.touched && productForm.get('price')?.hasError('required')">
+        قیمت الزامی است.
+      </small>
+
+      <small style="color: red;" *ngIf="productForm.get('price')?.touched && productForm.get('price')?.hasError('min')">
+        قیمت نمی‌تواند منفی باشد.
+      </small>
+    </div>
+
+    <!-- موجودی -->
+    <div style="margin-bottom: 15px;">
+      <label for="stock" style="display: block; margin-bottom: 5px;">موجودی</label>
+      <input
+        id="stock"
+        type="number"
+        formControlName="stock"
+        style="width: 100%; padding: 8px; box-sizing: border-box;"
+      />
+
+      <small style="color: red;" *ngIf="productForm.get('stock')?.touched && productForm.get('stock')?.hasError('required')">
+        موجودی الزامی است.
+      </small>
+
+      <small style="color: red;" *ngIf="productForm.get('stock')?.touched && productForm.get('stock')?.hasError('min')">
+        موجودی نمی‌تواند منفی باشد.
+      </small>
+    </div>
+
+    <!-- دسته‌بندی -->
+    <div style="margin-bottom: 15px;">
+      <label for="categoryId" style="display: block; margin-bottom: 5px;">دسته‌بندی</label>
+      <select
+        id="categoryId"
+        formControlName="categoryId"
+        style="width: 100%; padding: 8px; box-sizing: border-box;"
+      >
+        <option [ngValue]="null">-- انتخاب دسته‌بندی --</option>
+        <option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+
+      <small style="color: red;" *ngIf="productForm.get('categoryId')?.touched && productForm.get('categoryId')?.hasError('required')">
+        انتخاب دسته‌بندی الزامی است.
+      </small>
+    </div>
+
+    <!-- دکمه ثبت -->
+    <div style="text-align: center; margin-top: 20px;">
+      <button
+        type="submit"
+        [disabled]="isSubmitting"
+        style="padding: 10px 20px; background-color: #1976d2; color: white; border: none; border-radius: 5px; cursor: pointer;"
+      >
+        {{ isSubmitting ? 'در حال ثبت...' : 'ثبت محصول' }}
+      </button>
+    </div>
+
+  </form>
+</div>

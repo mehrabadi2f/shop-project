@@ -1,0 +1,45 @@
+<div class="product-container">
+  <div class="header">
+    <h2>لیست محصولات</h2>
+    <button routerLink="/products/new" class="btn btn-primary">
+      افزودن محصول جدید
+    </button>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">
+    در حال بارگذاری محصولات...
+  </div>
+
+  <div *ngIf="errorMessage && !isLoading" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!isLoading && !errorMessage">
+    <table *ngIf="products.length > 0; else noProducts" class="product-table">
+      <thead>
+      <tr>
+        <th>شناسه</th>
+        <th>نام محصول</th>
+        <th>توضیحات</th>
+        <th>قیمت</th>
+        <th>موجودی</th>
+        <th>دسته‌بندی</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.stock }}</td>
+        <td>{{ product.categoryName}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <ng-template #noProducts>
+      <p class="no-data">هیچ محصولی ثبت نشده است.</p>
+    </ng-template>
+  </div>
+</div>

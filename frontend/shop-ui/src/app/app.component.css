@@ -1,0 +1,4 @@
+.active-link {
+  text-decoration: underline !important;
+  color: #ffeb3b !important; /* رنگ زرد برای لینک فعال */
+}

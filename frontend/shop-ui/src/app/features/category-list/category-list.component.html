@@ -1,0 +1,29 @@
+<div class="category-container">
+
+  <h2>لیست دسته‌بندی‌ها</h2>
+
+  <button class="add-btn" (click)="navigateToNewCategory()">
+    افزودن دسته‌بندی جدید
+  </button>
+
+  <div *ngIf="isLoading">
+    در حال بارگذاری...
+  </div>
+
+  <table *ngIf="!isLoading" class="category-table">
+    <thead>
+    <tr>
+      <th>شناسه</th>
+      <th>نام دسته‌بندی</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let cat of categories">
+      <td>{{ cat.id }}</td>
+      <td>{{ cat.name }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

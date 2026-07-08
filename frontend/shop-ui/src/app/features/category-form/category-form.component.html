@@ -1,0 +1,27 @@
+<div class="category-form-container">
+
+  <h2>افزودن دسته‌بندی جدید</h2>
+
+  <form [formGroup]="categoryForm" (ngSubmit)="submit()">
+
+    <div class="form-field">
+      <label for="name">نام دسته‌بندی</label>
+      <input id="name" type="text" formControlName="name">
+
+      <!-- استفاده از nameControl به جای نوشتن مکرر categoryForm.get('name') -->
+      <small *ngIf="nameControl?.touched && nameControl?.hasError('required')">
+        وارد کردن نام دسته‌بندی الزامی است.
+      </small>
+
+      <small *ngIf="nameControl?.touched && nameControl?.hasError('minlength')">
+        نام دسته باید حداقل ۲ کاراکتر باشد.
+      </small>
+    </div>
+
+    <button class="submit-btn" type="submit" [disabled]="isSubmitting">
+      {{ isSubmitting ? 'در حال ثبت...' : 'ثبت دسته‌بندی' }}
+    </button>
+
+  </form>
+
+</div>

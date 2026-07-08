@@ -1,0 +1,36 @@
+.category-container {
+  direction: rtl;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.add-btn {
+  background-color: #1976d2;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.add-btn:hover {
+  background-color: #125a9c;
+}
+
+.category-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.category-table th,
+.category-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: right;
+}
+
+.category-table th {
+  background-color: #f2f2f2;
+}
