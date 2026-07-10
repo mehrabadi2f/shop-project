@@ -1,6 +1,5 @@
 package ir.controller;
 
-import ir.kimia.energyupload.dto.AccountResponse;
 import ir.dto.ProductRequest;
 import ir.model.product.Product;
 import io.swagger.v3.oas.annotations.Operation;
@@ -53,12 +52,17 @@ public class ProductController {
         productService.createProduct(request.getName(), request.getDescription(), request.getPrice(), request.getStock(), request.getReservedStock(), request.getCategory(), v);
         return ResponseEntity.ok(request);
     }
-
+    @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> ps=productService.getAllProducts();
         return ResponseEntity.ok(ps);
     }
-
+    // دریافت محصول تکی همراه با توضیحات کامل برای نمایش در کامپوننت جزئیات
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable Long id) {
+        Product product = productService.getProductById(id);
+        return ResponseEntity.ok(product);
+    }
 
 }
 
