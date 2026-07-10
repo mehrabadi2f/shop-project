@@ -27,9 +27,9 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let product of products">
+      <tr *ngFor="let product of products" (click)="onProductClick(product)" class="clickable-row" >
         <td>{{ product.id }}</td>
-        <td>{{ product.name }}</td>
+        <td class = "product-name" >{{ product.name }}</td>
         <td>{{ product.description }}</td>
         <td>{{ product.price }}</td>
         <td>{{ product.stock }}</td>

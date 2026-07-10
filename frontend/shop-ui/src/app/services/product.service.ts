@@ -22,4 +22,7 @@ export class ProductService {
   createProduct(productData: CreateProductRequest): Observable<Product> {
     return this.http.post<Product>(this.apiUrl, productData);
   }
+  getProductById(productId :number): Observable<Product> {
+    return this.http.get<Product>(this.apiUrl);
+  }
 }
