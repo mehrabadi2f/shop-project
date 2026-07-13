@@ -35,6 +35,12 @@ public class Product {
     @Column(nullable = false, precision = 18, scale = 2)
     private BigDecimal price;
 
+    @Column(nullable = false, precision = 18, scale = 2)
+    private BigDecimal salePrice;
+
+    @Column(nullable = false, precision = 18, scale = 2)
+    private BigDecimal costPrice;
+
     @Column(nullable = false)
     private Integer stock;
 
@@ -45,6 +51,9 @@ public class Product {
 
     @Version
     private Long version;
+
+    private boolean active;
+
 
     public void reserve(int quantity) {
 
@@ -71,4 +80,7 @@ public class Product {
        this.stock=stock;this.reservedStock=reservedStock;this.category=category;this.version=version;}
     }
 
+    public Boolean getActive() {
+        return active;
     }
+}

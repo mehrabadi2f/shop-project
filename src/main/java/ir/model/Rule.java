@@ -1,6 +1,7 @@
 package ir.model;
 
 
+import ir.model.analytics.Campaigns;
 import jakarta.persistence.*;
 
 //import javax.persistence.*;

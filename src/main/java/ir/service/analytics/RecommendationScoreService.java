@@ -2,7 +2,6 @@ package ir.service.analytics;
 
 import ir.model.analytics.UserActivity;
 import ir.model.analytics.UserProductScore;
-import ir.service.analytics.ActivityWeightService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,8 +11,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import ir.repository.UserActivityRepository;
-import ir.repository.UserProductScoreRepository;
+import ir.repository.analytics.UserActivityRepository;
+import ir.repository.analytics.UserProductScoreRepository;
 
 @Service
 @RequiredArgsConstructor

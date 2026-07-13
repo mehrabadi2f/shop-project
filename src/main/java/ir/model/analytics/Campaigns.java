@@ -1,4 +1,5 @@
-package ir.model;
+package ir.model.analytics;
+import ir.model.Rule;
 import jakarta.persistence.*;
 
 //import javax.persistence.*;

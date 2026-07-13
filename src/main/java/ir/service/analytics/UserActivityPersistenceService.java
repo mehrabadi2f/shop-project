@@ -3,7 +3,7 @@ package ir.service.analytics;
 
 import ir.dto.event.UserActivityEvent;
 import ir.model.analytics.UserActivity;
-import ir.repository.UserActivityRepository;
+import ir.repository.analytics.UserActivityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

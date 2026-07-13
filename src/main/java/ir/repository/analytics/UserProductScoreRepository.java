@@ -1,4 +1,4 @@
-package ir.repository;
+package ir.repository.analytics;
 
 import ir.model.analytics.UserProductScore;
 import org.springframework.data.jpa.repository.JpaRepository;
